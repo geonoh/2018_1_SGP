@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDataSource, UITextFieldDelegate {
+class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDataSource, UITableViewDelegate ,UITextFieldDelegate {
     var parser = XMLParser()
     var posts = NSMutableArray()
     
@@ -22,13 +22,22 @@ class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDa
     var event_pos_x = NSMutableString()
     var event_pos_y = NSMutableString()
     
-    
-    
-    
+    var page_num : Int = 1
     
     @IBOutlet weak var search_box: UITextField!
     
+    @IBAction func prev_search_button(_ sender: Any) {
+        if page_num > 1{
+            page_num -= 1
+            beginParsing()
+        }
+    }
+    @IBAction func next_search_button(_ sender: Any) {
+        page_num += 1
+        beginParsing()
+    }
     var utf_8_parsing = ""
+    //var page_num = ""
     
     let test_ = ViewController_Keyword_Detail()
     
@@ -106,6 +115,9 @@ class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDa
             if !event_pos_y.isEqual(nil){
                 elements.setObject(event_pos_y, forKey: "mapy" as NSCopying)
             }
+            if !event_url.isEqual(nil){
+                elements.setObject(event_url, forKey: "firstimage" as NSCopying)
+            }
             
             posts.add(elements)
         }
@@ -121,7 +133,6 @@ class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDa
         
         cell.textLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "title") as! NSString as String
         
-        //cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "date") as! NSString as String
         return cell
     }
     
@@ -132,10 +143,8 @@ class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDa
         utf_8_parsing = search_box.text!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         posts = []
         
-        parser = XMLParser(contentsOf: (URL(string:"http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?serviceKey=mGH1c982sz0WTiO2OmDl4dZQpHXUwlQiy5zeez6B0VjW%2BnSVROWPq1rgodlUVajH4QSXSuPGLG8htc2eXOqgaQ%3D%3D&MobileApp=AppTest&MobileOS=ETC&pageNo=1&startPage=1&numOfRows=10&pageSize=10&listYN=Y&arrange=A&contentTypeId=12&keyword=\(utf_8_parsing)"))!)!
+        parser = XMLParser(contentsOf: (URL(string:"http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?serviceKey=mGH1c982sz0WTiO2OmDl4dZQpHXUwlQiy5zeez6B0VjW%2BnSVROWPq1rgodlUVajH4QSXSuPGLG8htc2eXOqgaQ%3D%3D&MobileApp=AppTest&MobileOS=ETC&pageNo=\(page_num)&startPage=1&numOfRows=10&pageSize=10&listYN=Y&arrange=A&contentTypeId=12&keyword=\(utf_8_parsing)"))!)!
         
-        //parser = XMLParser(contentsOf: (URL(string:"http://images.apple.com/main/rss/hotnews/hotnews.rss"))!)!
-        //parser = XMLParser(contentsOf: (URL(string:"http://images.apple.com/main/rss/hotnews/hotnews.\(utf_8_parsing)"))!)!
         parser.delegate = self
         parser.parse()
         keyword_data!.reloadData()
@@ -143,39 +152,29 @@ class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDa
         
         
     }
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if segue.identifier == "segueToPharmacyDetail"{
-            if let cell = sender as? UITableViewCell{
-                let indexPath = tbData.indexPath(for: cell)
-                pharmacycode = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "hpid") as! NSString as String
-                if let navController = segue.destination as? UINavigationController{
-                    if let detailPharmacyTableViewController = navController.topViewController as? DetailPharmacyTableViewController{
-                        detailPharmacyTableViewController.url = "http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyBassInfoInqire?serviceKey=ZFUVcAyJirpdcu5jQmz0TDQ2rLktWOxLAhz9E5nehG6dht019PS7gjG64Amz4NwEe1cmeBeDOQDnmoAGifCvfw%3D%3D&HPID=\(pharmacycode)&pageNo=1&startPage=1&numOfRows=10&pageSize=10"
-                    }
-                }
-            }
-        }
-    }
-    */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "Segue_Keyword_Detail"){
-            if let navCon = segue.destination as? UINavigationController{
-                if let detail_table_view = navCon.topViewController as? ViewController_Keyword_Detail{
-                    detail_table_view.detail_title = "야임마테스트"
-                    print("\(detail_table_view.detail_title)")
-                    detail_table_view.detail_addr = event_addr
-                    detail_table_view.detail_tel = event_tel
-                    detail_table_view.detail_url = event_url
+        if segue.identifier == "SegueToDetailView"{
+            if let cell = sender as? UITableViewCell{
+                let indexPath = keyword_data.indexPath(for: cell)
+                event_title = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "title") as! NSString as String as! NSMutableString
+                event_url = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "firstimage") as! NSString as String as! NSMutableString
+                event_tel = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "tel") as! NSString as String as! NSMutableString
+                event_addr = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "addr1") as! NSString as String as! NSMutableString
+                if let viewcon_detail = segue.destination as? ViewController_Keyword_Detail{
+                    viewcon_detail.detail_title = event_title
+                    viewcon_detail.detail_tel = event_tel
+                    viewcon_detail.detail_addr = event_addr
+                    viewcon_detail.detail_url = event_url
                 }
             }
-            
         }
+        
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("최초 실행할게요")
+        
         self.search_box.delegate = self
         // Do any additional setup after loading the view.
     }
@@ -184,18 +183,13 @@ class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+        
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

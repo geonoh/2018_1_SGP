@@ -12,7 +12,7 @@ class ViewController_Keyword_Detail: UITableViewController, XMLParserDelegate {
     var detail_parser = XMLParser()
     var detail_posts = NSMutableArray()
     
-    
+    let postname : [String] = ["행사이름", "주소", "전화번호", "행사 포스터"]
     @IBOutlet var tableview_detail: UITableView!
     
     var detail_elements = NSMutableDictionary()
@@ -25,91 +25,65 @@ class ViewController_Keyword_Detail: UITableViewController, XMLParserDelegate {
     
     
     
-    
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        
-        detail_element = elementName as NSString
-        if (elementName as NSString).isEqual(to: "item"){
-            
-            
-            detail_elements = NSMutableDictionary()
-            detail_elements = [:]
-            detail_title = NSMutableString()
-            detail_title = ""
-            detail_tel = NSMutableString()
-            detail_tel = ""
-            detail_url = NSMutableString()
-            detail_url = ""
-            detail_addr = NSMutableString()
-            detail_addr = ""
-        }
-    }
-    
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
-        
-        if detail_element.isEqual(to: "title"){
-            detail_title.append(string)
-        }
-        else if detail_element.isEqual(to: "addr1"){
-            detail_addr.append(string)
-        }
-        else if detail_element.isEqual(to: "tel"){
-            detail_tel.append(string)
-        }
-        else if detail_element.isEqual(to: "firstimage"){
-            detail_url.append(string)
-        }
-    }
-    
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        
-        
-        if (elementName as NSString).isEqual(to: "item"){
-            
-            if !detail_title.isEqual(nil){
-                detail_elements.setObject(detail_title, forKey: "title" as NSCopying)
-            }
-            if !detail_addr.isEqual(nil){
-                detail_elements.setObject(detail_addr, forKey: "addr1" as NSCopying)
-            }
-            if !detail_url.isEqual(nil){
-                detail_elements.setObject(detail_url, forKey: "firstimage" as NSCopying)
-            }
-            if !detail_tel.isEqual(nil){
-                detail_elements.setObject(detail_tel, forKey: "tel" as NSCopying)
-            }
- 
-            detail_posts.add(detail_elements)
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return detail_posts.count
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath)
-        
-        cell.textLabel?.text = (detail_posts.object(at: indexPath.row) as AnyObject).value(forKey: "title") as! NSString as String
-        
-        //cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "date") as! NSString as String
+        cell.textLabel?.text = postname[indexPath.row]
+        cell.detailTextLabel?.text = detail_posts[indexPath.row] as? String
+        let string_buf : NSURL = NSURL(string: detail_posts[3] as! String)!
+        if let data = try? Data(contentsOf: string_buf as URL){
+            if(indexPath.row == 3){
+                cell.imageView?.image = UIImage(data: data)
+            }
+        }
+        /*
+        // Configure the cell...
+        if let url = URL(string: (detail_posts.object(at: indexPath.row) as AnyObject).value(forKey: "url") as! NSString as String){
+            if let data = try? Data(contentsOf: url){
+                cell.imageView?.image = UIImage(data: data)
+            }
+        }
+        */
         return cell
     }
     
-    
-    
+    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "Segue_Keyword_Detail"){
+            print("Hello World")
+            /*
+            if let navCon = segue.destination as? UINavigationController{
+                if let detail_table_view = navCon.topViewController as? ViewController_Keyword_Detail{
+                    detail_table_view.detail_title = "야임마테스트"
+                    print("\(detail_table_view.detail_title)")
+                    detail_table_view.detail_addr = event_addr
+                    detail_table_view.detail_tel = event_tel
+                    detail_table_view.detail_url = event_url
+                }
+            }
+            */
+        }
+    }
+    */
+    func SetPosts(){
+        detail_posts[0] = self.detail_title
+        detail_posts[1] = self.detail_addr
+        detail_posts[2] = self.detail_tel
+        detail_posts[3] = self.detail_url
+    }
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableview_detail!.reloadData()
-        print("되여")
+        
         print("\(self.detail_title)")
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        SetPosts()
+        tableview_detail!.reloadData()
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -121,7 +95,7 @@ class ViewController_Keyword_Detail: UITableViewController, XMLParserDelegate {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     /*
