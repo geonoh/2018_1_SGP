@@ -160,11 +160,15 @@ class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDa
                 event_url = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "firstimage") as! NSString as String as! NSMutableString
                 event_tel = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "tel") as! NSString as String as! NSMutableString
                 event_addr = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "addr1") as! NSString as String as! NSMutableString
+                event_pos_x = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "mapx") as! NSString as String as! NSMutableString
+                event_pos_y = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "mapy") as! NSString as String as! NSMutableString
                 if let viewcon_detail = segue.destination as? ViewController_Keyword_Detail{
                     viewcon_detail.detail_title = event_title
                     viewcon_detail.detail_tel = event_tel
                     viewcon_detail.detail_addr = event_addr
                     viewcon_detail.detail_url = event_url
+                    viewcon_detail.detail_x_pos = event_pos_x
+                    viewcon_detail.detail_y_pos = event_pos_y
                 }
             }
         }

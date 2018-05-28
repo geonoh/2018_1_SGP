@@ -12,7 +12,7 @@ class ViewController_Keyword_Detail: UITableViewController, XMLParserDelegate {
     var detail_parser = XMLParser()
     var detail_posts = NSMutableArray()
     
-    let postname : [String] = ["행사이름", "주소", "전화번호", "행사 포스터"]
+    let postname : [String] = ["행사이름", "주소", "전화번호", "행사 포스터", "지도 보기"]
     @IBOutlet var tableview_detail: UITableView!
     
     var detail_elements = NSMutableDictionary()
@@ -23,7 +23,21 @@ class ViewController_Keyword_Detail: UITableViewController, XMLParserDelegate {
     var detail_url = NSMutableString()
     var detail_addr = NSMutableString()
     
+    var detail_x_pos = NSMutableString()
+    var detail_y_pos = NSMutableString()
+
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MapViewSegue"{
+            
+            if let viewcon_map = segue.destination as? ViewController_MapView{
+                viewcon_map.x_pos = detail_x_pos as String
+                viewcon_map.y_pos = detail_y_pos as String
+                print("맵뷰로 넘겨버리기")
+            }
+        }
+        
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return detail_posts.count
@@ -73,6 +87,7 @@ class ViewController_Keyword_Detail: UITableViewController, XMLParserDelegate {
         detail_posts[1] = self.detail_addr
         detail_posts[2] = self.detail_tel
         detail_posts[3] = self.detail_url
+        detail_posts[4] = self.postname[4]
     }
     
     

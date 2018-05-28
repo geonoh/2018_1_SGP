@@ -102,7 +102,6 @@
         <!--View Controller Keyword-->
         <scene sceneID="O0K-Jg-0rQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MZz-pJ-zLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="dV0-fJ-zML" customClass="ViewController_Keyword" customModule="Travel_____________" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fFw-vy-tD3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -218,6 +217,7 @@
                         <outlet property="search_box" destination="taV-1l-Ts4" id="hcD-E7-c9f"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MZz-pJ-zLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="888.79999999999995" y="-1324.5877061469266"/>
         </scene>
@@ -253,6 +253,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="dTJ-ds-J3O" kind="show" identifier="MapViewSegue" id="QOn-VP-OIB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -267,6 +270,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGd-vB-m3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1646" y="-1325"/>
+        </scene>
+        <!--View Controller Map View-->
+        <scene sceneID="Itq-i3-S3s">
+            <objects>
+                <viewController id="dTJ-ds-J3O" customClass="ViewController_MapView" customModule="Travel_____________" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pFZ-D1-2lW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="89t-6Z-6rT">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="sZc-9R-s35"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="89t-6Z-6rT" id="NwG-0T-DNE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aDy-rn-IPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2448.8000000000002" y="-1325.4872563718143"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="lHS-2B-YzZ">
