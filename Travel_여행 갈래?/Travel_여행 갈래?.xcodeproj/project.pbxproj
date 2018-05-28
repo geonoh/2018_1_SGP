@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0901864320BC13A8005DC1A2 /* ViewController_Keyword_Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0901864220BC13A8005DC1A2 /* ViewController_Keyword_Detail.swift */; };
 		09A0D1D320B3F42D00F384F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A0D1D220B3F42D00F384F3 /* AppDelegate.swift */; };
 		09A0D1D820B3F42D00F384F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A0D1D620B3F42D00F384F3 /* Main.storyboard */; };
 		09A0D1DA20B3F42E00F384F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09A0D1D920B3F42E00F384F3 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0901864220BC13A8005DC1A2 /* ViewController_Keyword_Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Keyword_Detail.swift; sourceTree = "<group>"; };
 		09A0D1CF20B3F42D00F384F3 /* Travel_여행 갈래?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel_여행 갈래?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A0D1D220B3F42D00F384F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09A0D1D720B3F42D00F384F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				09A0D1DE20B3F42E00F384F3 /* Info.plist */,
 				09F92D3620BA8F7A00639AD6 /* ViewController.swift */,
 				09F92D3A20BA901100639AD6 /* ViewController_Keyword.swift */,
+				0901864220BC13A8005DC1A2 /* ViewController_Keyword_Detail.swift */,
 				09FC554D20BAB886009EA357 /* ViewController_Festival.swift */,
 			);
 			path = "Travel_여행 갈래?";
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0901864320BC13A8005DC1A2 /* ViewController_Keyword_Detail.swift in Sources */,
 				09FC554E20BAB886009EA357 /* ViewController_Festival.swift in Sources */,
 				09F92D3720BA8F7A00639AD6 /* ViewController.swift in Sources */,
 				09A0D1D320B3F42D00F384F3 /* AppDelegate.swift in Sources */,

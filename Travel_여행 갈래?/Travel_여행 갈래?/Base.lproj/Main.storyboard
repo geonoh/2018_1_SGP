@@ -96,9 +96,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QCi-of-r9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="848.79999999999995" y="-1319.1904047976013"/>
+            <point key="canvasLocation" x="143" y="-654"/>
         </scene>
-        <!--키워드 검색-->
+        <!--View Controller Keyword-->
         <scene sceneID="O0K-Jg-0rQ">
             <objects>
                 <viewController id="dV0-fJ-zML" customClass="ViewController_Keyword" customModule="Travel_____________" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,7 +107,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPO-ZQ-dA5">
-                                <rect key="frame" x="16" y="134" width="343" height="44"/>
+                                <rect key="frame" x="16" y="178" width="343" height="44"/>
                                 <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="tZi-m1-Jrn"/>
@@ -120,13 +120,13 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="taV-1l-Ts4">
-                                <rect key="frame" x="16" y="57" width="343" height="45"/>
+                                <rect key="frame" x="16" y="101" width="343" height="45"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SO5-26-QzL">
-                                <rect key="frame" x="16" y="203" width="343" height="396"/>
+                                <rect key="frame" x="16" y="247" width="343" height="352"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="JdI-rJ-zvS" detailTextLabel="Dly-MN-9NZ" style="IBUITableViewCellStyleSubtitle" id="gka-uG-83r">
@@ -152,6 +152,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="EhX-ny-IzC" kind="show" identifier="Segue_Keyword_Detail" id="jKv-JI-ojh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -175,14 +178,46 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pjm-3x-5j3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="키워드 검색" id="0VR-rq-yzU"/>
+                    <navigationItem key="navigationItem" id="4Xp-0T-hVg"/>
                     <connections>
                         <outlet property="keyword_data" destination="SO5-26-QzL" id="hyL-32-42T"/>
+                        <outlet property="search_box" destination="taV-1l-Ts4" id="hcD-E7-c9f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MZz-pJ-zLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="143.19999999999999" y="-1319.1904047976013"/>
+            <point key="canvasLocation" x="889" y="-1324"/>
+        </scene>
+        <!--View Controller Keyword Detail-->
+        <scene sceneID="aKT-DO-qaJ">
+            <objects>
+                <tableViewController id="EhX-ny-IzC" customClass="ViewController_Keyword_Detail" customModule="Travel_____________" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gEj-Bt-lud">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" id="EqS-U4-BDN">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EqS-U4-BDN" id="fEe-a6-Xpv">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EhX-ny-IzC" id="6fC-Bz-kTz"/>
+                            <outlet property="delegate" destination="EhX-ny-IzC" id="B9U-uN-Wv0"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableview_detail" destination="gEj-Bt-lud" id="joN-GL-rd2"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NGd-vB-m3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1646" y="-1325"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="lHS-2B-YzZ">
@@ -194,13 +229,32 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="dV0-fJ-zML" kind="relationship" relationship="viewControllers" id="ucq-bp-6DH"/>
+                        <segue destination="pXu-2l-VEV" kind="relationship" relationship="viewControllers" id="ucq-bp-6DH"/>
                         <segue destination="cJq-gq-mlk" kind="relationship" relationship="viewControllers" id="ClN-Xr-xWQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xiv-QS-Zs8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-584" y="-990"/>
+        </scene>
+        <!--키워드 검색-->
+        <scene sceneID="iya-4s-ECc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pXu-2l-VEV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="키워드 검색" id="0VR-rq-yzU"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BKy-cn-uub">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dV0-fJ-zML" kind="relationship" relationship="rootViewController" id="1DJ-3z-Wb6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZQj-8I-vCH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="193" y="-1325"/>
         </scene>
     </scenes>
 </document>
