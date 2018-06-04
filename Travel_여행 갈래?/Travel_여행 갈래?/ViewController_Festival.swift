@@ -18,7 +18,7 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var stop_button: UIButton!
     @IBOutlet weak var myTextView: UITextView!
     
-    private let speechRecognizer = SFSpeechRecognizer()!
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ko-KR"))!
     
     private var speechRecognitionRequest:
     SFSpeechAudioBufferRecognitionRequest?
