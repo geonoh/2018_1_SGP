@@ -112,6 +112,38 @@
             </objects>
             <point key="canvasLocation" x="141.59999999999999" y="-654.42278860569718"/>
         </scene>
+        <!--숙박조회-->
+        <scene sceneID="sSb-fZ-U1w">
+            <objects>
+                <viewController title="숙박조회" id="UEh-uf-3og" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Pp-lv-PsA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bYC-2v-b7Z"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="숙박조회" id="4IT-Vp-3PK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="crE-a2-92j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="44"/>
+        </scene>
+        <!--위치기반 관광정보-->
+        <scene sceneID="Phb-s3-2k1">
+            <objects>
+                <viewController id="EUf-eK-A1S" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cDU-tC-tNw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="O6t-fx-QfI"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="위치기반 관광정보" id="xPi-Dm-i9L"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wdA-va-tzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="142" y="749"/>
+        </scene>
         <!--View Controller Keyword-->
         <scene sceneID="O0K-Jg-0rQ">
             <objects>
@@ -232,7 +264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MZz-pJ-zLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="888.79999999999995" y="-1324.5877061469266"/>
+            <point key="canvasLocation" x="1489" y="-2090"/>
         </scene>
         <!--View Controller Keyword Detail-->
         <scene sceneID="aKT-DO-qaJ">
@@ -282,7 +314,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGd-vB-m3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1646" y="-1325"/>
+            <point key="canvasLocation" x="2449" y="-2090"/>
         </scene>
         <!--View Controller Map View-->
         <scene sceneID="Itq-i3-S3s">
@@ -312,14 +344,17 @@
         <scene sceneID="lHS-2B-YzZ">
             <objects>
                 <tabBarController id="P7A-6x-Uhl" customClass="ViewController" customModule="Travel_____________" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AeP-Oc-eyi">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="AeP-Oc-eyi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="1" green="0.9801811923" blue="0.10234025619999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="pXu-2l-VEV" kind="relationship" relationship="viewControllers" id="ucq-bp-6DH"/>
                         <segue destination="cJq-gq-mlk" kind="relationship" relationship="viewControllers" id="ClN-Xr-xWQ"/>
+                        <segue destination="UEh-uf-3og" kind="relationship" relationship="viewControllers" id="bjr-HH-srV"/>
+                        <segue destination="EUf-eK-A1S" kind="relationship" relationship="viewControllers" id="XJa-dl-uVH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xiv-QS-Zs8" userLabel="First Responder" sceneMemberID="firstResponder"/>
