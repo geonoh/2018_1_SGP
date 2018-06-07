@@ -115,10 +115,17 @@
         <!--숙박조회-->
         <scene sceneID="sSb-fZ-U1w">
             <objects>
-                <viewController title="숙박조회" id="UEh-uf-3og" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5Pp-lv-PsA">
+                <viewController title="숙박조회" id="UEh-uf-3og" customClass="ViewController_FindHome" customModule="Travel_____________" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Pp-lv-PsA" customClass="viewcon">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHO-Kq-ot5">
+                                <rect key="frame" x="276" y="94" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bYC-2v-b7Z"/>
                     </view>
@@ -126,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="crE-a2-92j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135" y="44"/>
+            <point key="canvasLocation" x="133.59999999999999" y="43.628185907046479"/>
         </scene>
         <!--위치기반 관광정보-->
         <scene sceneID="Phb-s3-2k1">
@@ -152,14 +159,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPO-ZQ-dA5">
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPO-ZQ-dA5">
                                 <rect key="frame" x="16" y="178" width="343" height="44"/>
-                                <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Nwk-79-5px"/>
                                 </constraints>
                                 <state key="normal" title="검 색">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="TestButton:" destination="dV0-fJ-zML" eventType="touchUpInside" id="elP-hH-ayX"/>
@@ -236,7 +243,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9Kq-nR-tZS" firstAttribute="leading" secondItem="SO5-26-QzL" secondAttribute="leading" id="1lD-xI-BSO"/>
                             <constraint firstItem="9Kq-nR-tZS" firstAttribute="baseline" secondItem="tht-uK-rOh" secondAttribute="firstBaseline" id="2pA-ww-Bm1"/>

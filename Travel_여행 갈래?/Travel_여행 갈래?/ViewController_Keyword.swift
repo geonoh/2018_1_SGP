@@ -7,8 +7,11 @@
 //
 
 import UIKit
+@IBDesignable
 
 class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDataSource, UITableViewDelegate ,UITextFieldDelegate {
+    
+    
     var parser = XMLParser()
     var posts = NSMutableArray()
     
@@ -179,6 +182,7 @@ class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "keyword_background.jpeg")!)
         self.search_box.delegate = self
         // Do any additional setup after loading the view.
     }
