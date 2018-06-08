@@ -9,7 +9,7 @@
 import UIKit
 import Speech
 
-class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, XMLParserDelegate {
     
     @IBOutlet weak var city_picker: UIPickerView!
     @IBOutlet weak var Festival_data: UITableView!
@@ -17,6 +17,124 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var transcribe_button: UIButton!
     @IBOutlet weak var stop_button: UIButton!
     @IBOutlet weak var myTextView: UITextView!
+    
+    var elements = NSMutableDictionary()
+    var element = NSString()
+    
+    var festival_title = NSMutableString()
+    var festival_addr = NSMutableString()
+    var festival_tel = NSMutableString()
+    var festival_image = NSMutableString()
+    var festival_pos_x = NSMutableString()
+    var festival_pos_y = NSMutableString()
+    var festival_start_date = NSMutableString()
+    var festival_end_date = NSMutableString()
+    
+    var parser = XMLParser()
+    
+    var posts = NSMutableArray()
+    
+    var start_date = NSMutableString()
+    
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+        
+        element = elementName as NSString
+        if (elementName as NSString).isEqual(to: "item"){
+            
+            
+            elements = NSMutableDictionary()
+            elements = [:]
+            festival_title = NSMutableString()
+            festival_title = ""
+            festival_tel = NSMutableString()
+            festival_tel = ""
+            festival_addr = NSMutableString()
+            festival_addr = ""
+            festival_image = NSMutableString()
+            festival_image = ""
+            festival_pos_x = NSMutableString()
+            festival_pos_x = ""
+            festival_pos_y = NSMutableString()
+            festival_pos_y = ""
+            festival_start_date = NSMutableString()
+            festival_start_date = ""
+            festival_end_date = NSMutableString()
+            festival_end_date = ""
+        }
+    }
+    
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        
+        if element.isEqual(to: "title"){
+            festival_title.append(string)
+        }
+        else if element.isEqual(to: "addr1"){
+            festival_addr.append(string)
+        }
+        else if element.isEqual(to: "tel"){
+            festival_tel.append(string)
+        }
+        else if element.isEqual(to: "mapx"){
+            festival_pos_x.append(string)
+        }
+        else if element.isEqual(to: "mapy"){
+            festival_pos_y.append(string)
+        }
+        else if element.isEqual(to: "firstimage"){
+            festival_image.append(string)
+        }
+        else if element.isEqual(to: "eventstartdate"){
+            festival_start_date.append(string)
+        }
+        else if element.isEqual(to: "eventenddate"){
+            festival_end_date.append(string)
+        }
+    }
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        
+        
+        if (elementName as NSString).isEqual(to: "item"){
+            
+            if !festival_title.isEqual(nil){
+                elements.setObject(festival_title, forKey: "title" as NSCopying)
+            }
+            if !festival_addr.isEqual(nil){
+                elements.setObject(festival_addr, forKey: "addr1" as NSCopying)
+            }
+            
+            if !festival_tel.isEqual(nil){
+                elements.setObject(festival_tel, forKey: "tel" as NSCopying)
+            }
+            if !festival_pos_x.isEqual(nil){
+                elements.setObject(festival_pos_x, forKey: "mapx" as NSCopying)
+            }
+            if !festival_pos_y.isEqual(nil){
+                elements.setObject(festival_pos_y, forKey: "mapy" as NSCopying)
+            }
+            if !festival_image.isEqual(nil){
+                elements.setObject(festival_image, forKey: "firstimage" as NSCopying)
+            }
+            if !festival_start_date.isEqual(nil){
+                elements.setObject(festival_start_date, forKey: "firstimage" as NSCopying)
+            }
+            if !festival_end_date.isEqual(nil){
+                elements.setObject(festival_end_date, forKey: "firstimage" as NSCopying)
+            }
+            posts.add(elements)
+        }
+        
+    }
+    
+    
+    func beginParsing(){
+        posts = []
+        
+        parser = XMLParser(contentsOf: (URL(string:"http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?serviceKey=mGH1c982sz0WTiO2OmDl4dZQpHXUwlQiy5zeez6B0VjW%2BnSVROWPq1rgodlUVajH4QSXSuPGLG8htc2eXOqgaQ%3D%3D&numOfRows=10&pageSize=10&pageNo=1&startPage=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&listYN=Y&eventStartDate=\(start_date)"))!)!
+        
+        parser.delegate = self
+        parser.parse()
+    }
+    
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ko-KR"))!
     
@@ -39,18 +157,23 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
             stop_button.isEnabled = false
         }
         print("눌렷냐")
-        switch (self.myTextView.text) {
+        let fularray = self.myTextView.text.components(separatedBy: " ")
+        
+        let abcd : Int? = Int(fularray[0])
+        print("\(abcd) 이거 되면 너무 좋겠다")
+        
+        print("\(fularray[0])에 년도 드렁와랑")
+        print("\(fularray[1])에 월 드렁와랑")
+        if fularray[1]. < 10 {
             
-        case "서울" : self.city_picker.selectRow(0, inComponent: 0, animated: true)
-            break
-        case "인천" : self.city_picker.selectRow(1, inComponent: 0, animated: true)
-            break
-        case "대전" : self.city_picker.selectRow(2, inComponent: 0, animated: true)
-            break
-        case "대구" : self.city_picker.selectRow(3, inComponent: 0, animated: true)
-            break
-        default:break
         }
+        // 월은 무조건 MM 형식이어야한다.
+        
+        print("\(fularray[2])에 일 드렁와랑")
+        if self.myTextView.text.hasSuffix(String("년")){
+            print("년이 있넹?")
+        }
+        
     }
     
     func startSession() throws {
@@ -155,15 +278,15 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
         }else if row == 3{
             area_code = "4&listYN=Y"     // 강원
         }else if row == 4{
-            area_code = "4&listYN=Y"     // 강원
+            area_code = "5&listYN=Y"     // 강원
         }else if row == 5{
-            area_code = "4&listYN=Y"     // 강원
+            area_code = "6&listYN=Y"     // 강원
         }else if row == 6{
-            area_code = "4&listYN=Y"     // 강원
+            area_code = "7&listYN=Y"     // 강원
         }else if row == 7{
-            area_code = "4&listYN=Y"     // 강원
+            area_code = "8&listYN=Y"     // 강원
         }else if row == 8{
-            area_code = "4&listYN=Y"     // 강원
+            area_code = "9&listYN=Y"     // 강원
         }
     }
     
@@ -173,6 +296,7 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
         self.city_picker.delegate = self
         self.city_picker.dataSource = self
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "festival_background.jpeg")!)
         authorizeSR()
     }
 

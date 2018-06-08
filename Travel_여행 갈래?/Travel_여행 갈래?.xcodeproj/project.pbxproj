@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		0901864320BC13A8005DC1A2 /* ViewController_Keyword_Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0901864220BC13A8005DC1A2 /* ViewController_Keyword_Detail.swift */; };
 		0958D41E20C94AAD000EA0C2 /* ViewController_FindHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958D41D20C94AAD000EA0C2 /* ViewController_FindHome.swift */; };
-		0958D42020C953C7000EA0C2 /* keyword_background_dummy.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0958D41F20C953C7000EA0C2 /* keyword_background_dummy.jpeg */; };
-		0958D42420C956CB000EA0C2 /* keyword_background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0958D42220C956CA000EA0C2 /* keyword_background.jpeg */; };
-		0958D42520C956CB000EA0C2 /* 다운로드.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0958D42320C956CA000EA0C2 /* 다운로드.jpeg */; };
+		095DFEF320CAC4A40072B9ED /* keyword_background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 095DFEF220CAC4A40072B9ED /* keyword_background.jpeg */; };
+		095DFEF520CAD9D40072B9ED /* festival_background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 095DFEF420CAD9D40072B9ED /* festival_background.jpeg */; };
 		09A0D1D320B3F42D00F384F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A0D1D220B3F42D00F384F3 /* AppDelegate.swift */; };
 		09A0D1D820B3F42D00F384F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A0D1D620B3F42D00F384F3 /* Main.storyboard */; };
 		09A0D1DA20B3F42E00F384F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09A0D1D920B3F42E00F384F3 /* Assets.xcassets */; };
@@ -25,9 +24,8 @@
 /* Begin PBXFileReference section */
 		0901864220BC13A8005DC1A2 /* ViewController_Keyword_Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Keyword_Detail.swift; sourceTree = "<group>"; };
 		0958D41D20C94AAD000EA0C2 /* ViewController_FindHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_FindHome.swift; sourceTree = "<group>"; };
-		0958D41F20C953C7000EA0C2 /* keyword_background_dummy.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = keyword_background_dummy.jpeg; sourceTree = "<group>"; };
-		0958D42220C956CA000EA0C2 /* keyword_background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = keyword_background.jpeg; sourceTree = "<group>"; };
-		0958D42320C956CA000EA0C2 /* 다운로드.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "다운로드.jpeg"; sourceTree = "<group>"; };
+		095DFEF220CAC4A40072B9ED /* keyword_background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = keyword_background.jpeg; sourceTree = "<group>"; };
+		095DFEF420CAD9D40072B9ED /* festival_background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = festival_background.jpeg; sourceTree = "<group>"; };
 		09A0D1CF20B3F42D00F384F3 /* Travel_여행 갈래?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel_여행 갈래?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A0D1D220B3F42D00F384F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09A0D1D720B3F42D00F384F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,9 +52,8 @@
 		0958D42120C953D3000EA0C2 /* ResourceImage */ = {
 			isa = PBXGroup;
 			children = (
-				0958D42220C956CA000EA0C2 /* keyword_background.jpeg */,
-				0958D42320C956CA000EA0C2 /* 다운로드.jpeg */,
-				0958D41F20C953C7000EA0C2 /* keyword_background_dummy.jpeg */,
+				095DFEF420CAD9D40072B9ED /* festival_background.jpeg */,
+				095DFEF220CAC4A40072B9ED /* keyword_background.jpeg */,
 			);
 			path = ResourceImage;
 			sourceTree = "<group>";
@@ -155,11 +152,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				09A0D1DD20B3F42E00F384F3 /* LaunchScreen.storyboard in Resources */,
-				0958D42020C953C7000EA0C2 /* keyword_background_dummy.jpeg in Resources */,
+				095DFEF520CAD9D40072B9ED /* festival_background.jpeg in Resources */,
+				095DFEF320CAC4A40072B9ED /* keyword_background.jpeg in Resources */,
 				09A0D1DA20B3F42E00F384F3 /* Assets.xcassets in Resources */,
 				09A0D1D820B3F42D00F384F3 /* Main.storyboard in Resources */,
-				0958D42520C956CB000EA0C2 /* 다운로드.jpeg in Resources */,
-				0958D42420C956CB000EA0C2 /* keyword_background.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +319,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MC2P8VKANP;
 				INFOPLIST_FILE = "Travel_여행 갈래?/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -341,6 +338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MC2P8VKANP;
 				INFOPLIST_FILE = "Travel_여행 갈래?/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -98,6 +98,7 @@ class ViewController_Keyword_Detail: UITableViewController, XMLParserDelegate {
         print("\(self.detail_title)")
         SetPosts()
         tableview_detail!.reloadData()
+        tableview_detail.backgroundView = UIImageView(image: UIImage(named: "keyword_background.jpeg"))
     
     }
 
