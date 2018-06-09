@@ -160,19 +160,19 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
         let fularray = self.myTextView.text.components(separatedBy: " ")
         
         let abcd : Int? = Int(fularray[0])
-        print("\(abcd) 이거 되면 너무 좋겠다")
+        print("\(String(describing: abcd)) 이거 되면 너무 좋겠다")
         
+        
+        var real_buff = fularray[0].split(separator: "년")
+        var bufff = fularray[0].suffix(4)
+        
+        print("\(real_buff[0]) 아 제발요 형님 시발")
         print("\(fularray[0])에 년도 드렁와랑")
         print("\(fularray[1])에 월 드렁와랑")
-        if fularray[1]. < 10 {
-            
-        }
         // 월은 무조건 MM 형식이어야한다.
         
         print("\(fularray[2])에 일 드렁와랑")
-        if self.myTextView.text.hasSuffix(String("년")){
-            print("년이 있넹?")
-        }
+
         
     }
     
