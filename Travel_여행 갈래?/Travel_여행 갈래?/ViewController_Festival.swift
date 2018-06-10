@@ -9,14 +9,34 @@
 import UIKit
 import Speech
 
-class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, XMLParserDelegate {
+class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, XMLParserDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var city_picker: UIPickerView!
+    
     @IBOutlet weak var Festival_data: UITableView!
     
     @IBOutlet weak var transcribe_button: UIButton!
     @IBOutlet weak var stop_button: UIButton!
     @IBOutlet weak var myTextView: UITextView!
+    
+    var page_num : Int = 1
+    
+    @IBAction func prev_button(_ sender: Any) {
+        if page_num > 1 {
+            page_num -= 1
+            beginParsing()
+        }
+    }
+    
+    @IBAction func next_button(_ sender: Any) {
+        page_num += 1
+        beginParsing()
+    }
+    
+    @IBAction func search_button(_ sender: Any) {
+        //print("검색 버튼")
+        beginParsing()
+    }
     
     var elements = NSMutableDictionary()
     var element = NSString()
@@ -37,7 +57,6 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
     var start_date = NSMutableString()
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        
         element = elementName as NSString
         if (elementName as NSString).isEqual(to: "item"){
             
@@ -63,10 +82,31 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
         }
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+
+        return posts.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath)
+
+        cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "addr1") as! NSString as String
+        
+        cell.textLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "title") as! NSString as String
+        
+        return cell
+    }
+    
+    
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         
         if element.isEqual(to: "title"){
             festival_title.append(string)
+        }
+        else if element.isEqual(to: "eventstartdate"){
+            festival_start_date.append(string)
+        }
+        else if element.isEqual(to: "eventenddate"){
+            festival_end_date.append(string)
         }
         else if element.isEqual(to: "addr1"){
             festival_addr.append(string)
@@ -83,20 +123,22 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
         else if element.isEqual(to: "firstimage"){
             festival_image.append(string)
         }
-        else if element.isEqual(to: "eventstartdate"){
-            festival_start_date.append(string)
-        }
-        else if element.isEqual(to: "eventenddate"){
-            festival_end_date.append(string)
-        }
+        
     }
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
         
         if (elementName as NSString).isEqual(to: "item"){
-            
+            if !festival_start_date.isEqual(nil){
+                elements.setObject(festival_start_date, forKey: "eventstartdate" as NSCopying)
+                print("시작일 원소로 삽입")
+            }
+            if !festival_end_date.isEqual(nil){
+                elements.setObject(festival_end_date, forKey: "eventend" as NSCopying)
+            }
             if !festival_title.isEqual(nil){
                 elements.setObject(festival_title, forKey: "title" as NSCopying)
+                print("타이틀 따로 원소 삽입")
             }
             if !festival_addr.isEqual(nil){
                 elements.setObject(festival_addr, forKey: "addr1" as NSCopying)
@@ -114,25 +156,63 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
             if !festival_image.isEqual(nil){
                 elements.setObject(festival_image, forKey: "firstimage" as NSCopying)
             }
-            if !festival_start_date.isEqual(nil){
-                elements.setObject(festival_start_date, forKey: "firstimage" as NSCopying)
-            }
-            if !festival_end_date.isEqual(nil){
-                elements.setObject(festival_end_date, forKey: "firstimage" as NSCopying)
-            }
+            
             posts.add(elements)
         }
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SegueToFestDetailView"{
+            if let cell = sender as? UITableViewCell{
+                let indexPath = Festival_data.indexPath(for: cell)
+                festival_title = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "title") as! NSString as String as! NSMutableString
+                festival_image = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "firstimage") as! NSString as String as! NSMutableString
+                festival_tel = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "tel") as! NSString as String as! NSMutableString
+                festival_addr = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "addr1") as! NSString as String as! NSMutableString
+                festival_pos_x = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "mapx") as! NSString as String as! NSMutableString
+                festival_pos_y = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "mapy") as! NSString as String as! NSMutableString
+                
+                
+                //(posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "eventstart") as! NSString as String as! NSMutableString
+                
+                
+                
+                
+                festival_start_date = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "eventstartdate") as! NSString as String as! NSMutableString
+                
+                festival_end_date = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "eventend") as! NSString as String as! NSMutableString
+                
+                //festival_start_date = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "eventstartdate") as! NSString as String as! NSMutableString
+                //festival_end_date = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "eventenddate") as! NSString as String as! NSMutableString
+                if let festival_detail = segue.destination as? TableViewController_Festival_Detail{
+                    festival_detail.detail_title = festival_title
+                    festival_detail.detail_tel = festival_tel
+                    festival_detail.detail_addr = festival_addr
+                    festival_detail.detail_url = festival_image
+                    festival_detail.detail_x_pos = festival_pos_x
+                    festival_detail.detail_y_pos = festival_pos_y
+                    festival_detail.detail_start_date = festival_start_date
+                    festival_detail.detail_end_date = festival_end_date
+                    
+                }
+            }
+        }
+        
+    }
+    
+    
     
     func beginParsing(){
         posts = []
         
-        parser = XMLParser(contentsOf: (URL(string:"http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?serviceKey=mGH1c982sz0WTiO2OmDl4dZQpHXUwlQiy5zeez6B0VjW%2BnSVROWPq1rgodlUVajH4QSXSuPGLG8htc2eXOqgaQ%3D%3D&numOfRows=10&pageSize=10&pageNo=1&startPage=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&listYN=Y&eventStartDate=\(start_date)"))!)!
+        parser = XMLParser(contentsOf: (URL(string:"http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?serviceKey=mGH1c982sz0WTiO2OmDl4dZQpHXUwlQiy5zeez6B0VjW%2BnSVROWPq1rgodlUVajH4QSXSuPGLG8htc2eXOqgaQ%3D%3D&numOfRows=10&pageSize=10&pageNo=\(page_num)&startPage=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&listYN=Y&areaCode=\(area_code)&eventStartDate=\(start_date)"))!)!
         
+        //print("폐지 넘버 : \(page_num), 지역 코드 : \(area_code), 시작일 : \(start_date)")
         parser.delegate = self
         parser.parse()
+        
+        Festival_data!.reloadData()
     }
     
     
@@ -156,24 +236,38 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
             transcribe_button.isEnabled = true
             stop_button.isEnabled = false
         }
-        print("눌렷냐")
+        //print("눌렷냐")
         let fularray = self.myTextView.text.components(separatedBy: " ")
         
-        let abcd : Int? = Int(fularray[0])
-        print("\(String(describing: abcd)) 이거 되면 너무 좋겠다")
+        var year_buf = fularray[0].split(separator: "년")
+        var month_buf = fularray[1].split(separator: "월")
+        var day_buf = fularray[2].split(separator: "일")
+        
+        start_date = ""
+        start_date.append(String(year_buf[0]))
+        
+        // month_buff_under ten
+        var month_buf_ut = NSMutableString()
+        if(Int(month_buf[0])! < 10){
+            month_buf_ut = "0"
+            month_buf_ut.append(String(month_buf[0]))
+            start_date.append(String(month_buf_ut))
+        }else{
+            start_date.append(String(month_buf[0]))
+        }
+        
+        // day_buff_under_ten
+        var day_buf_ut = NSMutableString()
+        if(Int(month_buf[0])! < 10){
+            day_buf_ut = "0"
+            day_buf_ut.append(String(day_buf[0]))
+            start_date.append(String(day_buf_ut))
+        }else{
+            start_date.append(String(day_buf[0]))
+        }
         
         
-        var real_buff = fularray[0].split(separator: "년")
-        var bufff = fularray[0].suffix(4)
-        
-        print("\(real_buff[0]) 아 제발요 형님 시발")
-        print("\(fularray[0])에 년도 드렁와랑")
-        print("\(fularray[1])에 월 드렁와랑")
-        // 월은 무조건 MM 형식이어야한다.
-        
-        print("\(fularray[2])에 일 드렁와랑")
-
-        
+        //print("\(start_date)")
     }
     
     func startSession() throws {
@@ -250,14 +344,9 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     
-    var url : String = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?serviceKey=mGH1c982sz0WTiO2OmDl4dZQpHXUwlQiy5zeez6B0VjW%2BnSVROWPq1rgodlUVajH4QSXSuPGLG8htc2eXOqgaQ%3D%3D&pageNo=1&startPage=1&numOfRows=10&pageSize=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&contentTypeId=15&areaCode=1&listYN=Y"
-    
-    var area_code : String = "1&listYN=Y"        // 디폴트 시 코드 -> 서울
+    var area_code : String = "1"        // 디폴트 시 코드 -> 서울
     
     
-    @IBAction func search_button(_ sender: Any) {
-        print("검색 버튼")
-    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -270,23 +359,32 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if row == 0{
-            area_code = "1&listYN=Y"    // 서울
+            area_code = "1"    // 서울
+            page_num = 1
         }else if row == 1{
-            area_code = "2&listYN=Y"    // 인천
+            area_code = "2"    // 인천
+            page_num = 1
         }else if row == 2{
-            area_code = "3&listYN=Y"    // 대전
+            area_code = "3"    // 대전
+            page_num = 1
         }else if row == 3{
-            area_code = "4&listYN=Y"     // 강원
+            area_code = "4"     // 강원
+            page_num = 1
         }else if row == 4{
-            area_code = "5&listYN=Y"     // 강원
+            area_code = "5"     // 강원
+            page_num = 1
         }else if row == 5{
-            area_code = "6&listYN=Y"     // 강원
+            area_code = "6"     // 강원
+            page_num = 1
         }else if row == 6{
-            area_code = "7&listYN=Y"     // 강원
+            area_code = "7"     // 강원
+            page_num = 1
         }else if row == 7{
-            area_code = "8&listYN=Y"     // 강원
+            area_code = "8"     // 강원
+            page_num = 1
         }else if row == 8{
-            area_code = "9&listYN=Y"     // 강원
+            area_code = "9"     // 강원
+            page_num = 1
         }
     }
     
@@ -297,6 +395,7 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
         self.city_picker.dataSource = self
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "festival_background.jpeg")!)
+        Festival_data.dataSource = self
         authorizeSR()
     }
 
