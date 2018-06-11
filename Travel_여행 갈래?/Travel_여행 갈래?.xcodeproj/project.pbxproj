@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0901864320BC13A8005DC1A2 /* ViewController_Keyword_Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0901864220BC13A8005DC1A2 /* ViewController_Keyword_Detail.swift */; };
+		091D12D220CE6A6A00569AA6 /* TableViewController_FindHome_Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091D12D120CE6A6A00569AA6 /* TableViewController_FindHome_Detail.swift */; };
 		09524A4520CCDE300079FB3B /* TableViewController_Festival_Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09524A4420CCDE300079FB3B /* TableViewController_Festival_Detail.swift */; };
 		0958D41E20C94AAD000EA0C2 /* ViewController_FindHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958D41D20C94AAD000EA0C2 /* ViewController_FindHome.swift */; };
 		095DFEF320CAC4A40072B9ED /* keyword_background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 095DFEF220CAC4A40072B9ED /* keyword_background.jpeg */; };
@@ -18,6 +19,7 @@
 		09A0D1DA20B3F42E00F384F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09A0D1D920B3F42E00F384F3 /* Assets.xcassets */; };
 		09A0D1DD20B3F42E00F384F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A0D1DB20B3F42E00F384F3 /* LaunchScreen.storyboard */; };
 		09B04FAE20BC5E5300773E87 /* ViewController_MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B04FAD20BC5E5300773E87 /* ViewController_MapView.swift */; };
+		09C8E30720CEB992002A359A /* ViewController_FindHome_Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C8E30620CEB992002A359A /* ViewController_FindHome_Map.swift */; };
 		09F92D3720BA8F7A00639AD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F92D3620BA8F7A00639AD6 /* ViewController.swift */; };
 		09F92D3B20BA901100639AD6 /* ViewController_Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F92D3A20BA901100639AD6 /* ViewController_Keyword.swift */; };
 		09FC554E20BAB886009EA357 /* ViewController_Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC554D20BAB886009EA357 /* ViewController_Festival.swift */; };
@@ -25,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		0901864220BC13A8005DC1A2 /* ViewController_Keyword_Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Keyword_Detail.swift; sourceTree = "<group>"; };
+		091D12D120CE6A6A00569AA6 /* TableViewController_FindHome_Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController_FindHome_Detail.swift; sourceTree = "<group>"; };
 		09524A4420CCDE300079FB3B /* TableViewController_Festival_Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewController_Festival_Detail.swift; path = Assets.xcassets/TableViewController_Festival_Detail.swift; sourceTree = "<group>"; };
 		0958D41D20C94AAD000EA0C2 /* ViewController_FindHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_FindHome.swift; sourceTree = "<group>"; };
 		095DFEF220CAC4A40072B9ED /* keyword_background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = keyword_background.jpeg; sourceTree = "<group>"; };
@@ -37,6 +40,7 @@
 		09A0D1DC20B3F42E00F384F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09A0D1DE20B3F42E00F384F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09B04FAD20BC5E5300773E87 /* ViewController_MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_MapView.swift; sourceTree = "<group>"; };
+		09C8E30620CEB992002A359A /* ViewController_FindHome_Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_FindHome_Map.swift; sourceTree = "<group>"; };
 		09F92D3620BA8F7A00639AD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		09F92D3A20BA901100639AD6 /* ViewController_Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Keyword.swift; sourceTree = "<group>"; };
 		09FC554D20BAB886009EA357 /* ViewController_Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Festival.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 				09524A4420CCDE300079FB3B /* TableViewController_Festival_Detail.swift */,
 				0990492120CE1778000F7C11 /* ViewController_Festival_Map.swift */,
 				0958D41D20C94AAD000EA0C2 /* ViewController_FindHome.swift */,
+				091D12D120CE6A6A00569AA6 /* TableViewController_FindHome_Detail.swift */,
+				09C8E30620CEB992002A359A /* ViewController_FindHome_Map.swift */,
 			);
 			path = "Travel_여행 갈래?";
 			sourceTree = "<group>";
@@ -174,9 +180,11 @@
 			files = (
 				09B04FAE20BC5E5300773E87 /* ViewController_MapView.swift in Sources */,
 				0901864320BC13A8005DC1A2 /* ViewController_Keyword_Detail.swift in Sources */,
+				091D12D220CE6A6A00569AA6 /* TableViewController_FindHome_Detail.swift in Sources */,
 				09524A4520CCDE300079FB3B /* TableViewController_Festival_Detail.swift in Sources */,
 				09FC554E20BAB886009EA357 /* ViewController_Festival.swift in Sources */,
 				0990492220CE1778000F7C11 /* ViewController_Festival_Map.swift in Sources */,
+				09C8E30720CEB992002A359A /* ViewController_FindHome_Map.swift in Sources */,
 				0958D41E20C94AAD000EA0C2 /* ViewController_FindHome.swift in Sources */,
 				09F92D3720BA8F7A00639AD6 /* ViewController.swift in Sources */,
 				09A0D1D320B3F42D00F384F3 /* AppDelegate.swift in Sources */,

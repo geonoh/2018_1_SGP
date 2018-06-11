@@ -83,7 +83,6 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
