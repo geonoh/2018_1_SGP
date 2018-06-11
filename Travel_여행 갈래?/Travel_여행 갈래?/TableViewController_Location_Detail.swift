@@ -1,20 +1,18 @@
 //
-//  TableViewController_FindHome_Detail.swift
+//  TableViewController_Location_Detail.swift
 //  Travel_여행 갈래?
 //
-//  Created by 오건 on 2018. 6. 11..
+//  Created by 오건 on 2018. 6. 12..
 //  Copyright © 2018년 오건. All rights reserved.
 //
 
 import UIKit
 
-class TableViewController_FindHome_Detail: UITableViewController {
-    //var detail_parser = XMLParser()
+class TableViewController_Location_Detail: UITableViewController {
+    @IBOutlet var location_tableview: UITableView!
+    
+    
     var detail_posts = NSMutableArray()
-    
-    
-    @IBOutlet var home_detail_view: UITableView!
-    
     let postname : [String] = ["행사이름", "주소", "전화번호", "행사 포스터", "지도 보기"]
     
     var detail_elements = NSMutableDictionary()
@@ -27,25 +25,14 @@ class TableViewController_FindHome_Detail: UITableViewController {
     
     var detail_x_pos = NSMutableString()
     var detail_y_pos = NSMutableString()
+    
 
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SegueHomeMap"{
-            
-            if let viewcon_map = segue.destination as? ViewController_FindHome_Map{
-                viewcon_map.x_pos = detail_x_pos as String
-                viewcon_map.y_pos = detail_y_pos as String
-                print("맵뷰로 넘겨버리기")
-            }
-        }
-        
-    }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return detail_posts.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeDetailCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LocaionDetailCell", for: indexPath)
         cell.textLabel?.text = postname[indexPath.row]
         cell.detailTextLabel?.text = detail_posts[indexPath.row] as? String
         let string_buf : NSURL = NSURL(string: detail_posts[3] as! String)!
@@ -65,14 +52,30 @@ class TableViewController_FindHome_Detail: UITableViewController {
         detail_posts[4] = self.postname[4]
     }
 
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SegueLocaionMapView"{
+            
+            if let viewcon_map = segue.destination as? ViewController_Location_Map{
+                viewcon_map.x_pos = detail_x_pos as String
+                viewcon_map.y_pos = detail_y_pos as String
+                print("맵뷰로 넘겨버리기")
+            }
+        }
+        
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("\(self.detail_tel)")
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+        location_tableview.backgroundView = UIImageView(image: UIImage(named:  "location_background.jpeg"))
         SetPosts()
-        home_detail_view!.reloadData()
-        home_detail_view.backgroundView = UIImageView(image: UIImage(named:  "homestay_background.jpeg"))
-        //tableview_detail.backgroundView = UIImageView(image: UIImage(named: "keyword_background.jpeg"))
+        location_tableview!.reloadData()
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,8 +89,6 @@ class TableViewController_FindHome_Detail: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
-
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

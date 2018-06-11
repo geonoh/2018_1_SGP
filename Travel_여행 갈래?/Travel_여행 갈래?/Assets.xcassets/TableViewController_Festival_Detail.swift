@@ -13,6 +13,8 @@ class TableViewController_Festival_Detail: UITableViewController, XMLParserDeleg
     var detail_posts = NSMutableArray()
     
     
+    @IBOutlet var festival_table_detail: UITableView!
+    
     let postname : [String] = ["행사이름", "주소", "전화번호", "행사 포스터", "지도 보기", "시작일", "종료일"]
     
     var detail_elements = NSMutableDictionary()
@@ -82,6 +84,7 @@ class TableViewController_Festival_Detail: UITableViewController, XMLParserDeleg
         super.viewDidLoad()
         
         SetPosts()
+        festival_table_detail.backgroundView = UIImageView(image: UIImage(named:  "festival_background.jpeg"))
     }
 
     override func didReceiveMemoryWarning() {

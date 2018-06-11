@@ -48,11 +48,9 @@ class ViewController_FindHome: UIViewController, XMLParserDelegate ,UIPickerView
     var element = NSString()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        print("테이블")
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        print("다른테이블")
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell3", for: indexPath)
         
         cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "addr1") as! NSString as String
@@ -226,7 +224,7 @@ class ViewController_FindHome: UIViewController, XMLParserDelegate ,UIPickerView
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "homestay_background.jpeg")!)
         self.home_picker.delegate = self
         self.home_picker.dataSource = self
         
