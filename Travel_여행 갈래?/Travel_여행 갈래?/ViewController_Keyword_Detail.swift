@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController_Keyword_Detail: UITableViewController, XMLParserDelegate {
-    var detail_parser = XMLParser()
+    //var detail_parser = XMLParser()
     var detail_posts = NSMutableArray()
     
     let postname : [String] = ["행사이름", "주소", "전화번호", "행사 포스터", "지도 보기"]

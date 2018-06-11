@@ -131,14 +131,13 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
         if (elementName as NSString).isEqual(to: "item"){
             if !festival_start_date.isEqual(nil){
                 elements.setObject(festival_start_date, forKey: "eventstartdate" as NSCopying)
-                print("시작일 원소로 삽입")
+                
             }
             if !festival_end_date.isEqual(nil){
-                elements.setObject(festival_end_date, forKey: "eventend" as NSCopying)
+                elements.setObject(festival_end_date, forKey: "eventenddate" as NSCopying)
             }
             if !festival_title.isEqual(nil){
                 elements.setObject(festival_title, forKey: "title" as NSCopying)
-                print("타이틀 따로 원소 삽입")
             }
             if !festival_addr.isEqual(nil){
                 elements.setObject(festival_addr, forKey: "addr1" as NSCopying)
@@ -172,19 +171,12 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
                 festival_addr = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "addr1") as! NSString as String as! NSMutableString
                 festival_pos_x = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "mapx") as! NSString as String as! NSMutableString
                 festival_pos_y = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "mapy") as! NSString as String as! NSMutableString
+                                
+                let buf_start = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "eventstartdate") as! NSString as String
+                let buf_end = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "eventenddate") as! NSString as String
+                print("\(buf_start)출력해보자")
                 
                 
-                //(posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "eventstart") as! NSString as String as! NSMutableString
-                
-                
-                
-                
-                festival_start_date = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "eventstartdate") as! NSString as String as! NSMutableString
-                
-                festival_end_date = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "eventend") as! NSString as String as! NSMutableString
-                
-                //festival_start_date = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "eventstartdate") as! NSString as String as! NSMutableString
-                //festival_end_date = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "eventenddate") as! NSString as String as! NSMutableString
                 if let festival_detail = segue.destination as? TableViewController_Festival_Detail{
                     festival_detail.detail_title = festival_title
                     festival_detail.detail_tel = festival_tel
@@ -192,8 +184,8 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
                     festival_detail.detail_url = festival_image
                     festival_detail.detail_x_pos = festival_pos_x
                     festival_detail.detail_y_pos = festival_pos_y
-                    festival_detail.detail_start_date = festival_start_date
-                    festival_detail.detail_end_date = festival_end_date
+                    festival_detail.detail_start_date = buf_start
+                    festival_detail.detail_end_date = buf_end
                     
                 }
             }

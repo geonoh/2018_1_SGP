@@ -142,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QCi-of-r9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080.8" y="-654.42278860569718"/>
+            <point key="canvasLocation" x="990" y="-654"/>
         </scene>
         <!--Table View Controller Festival Detail-->
         <scene sceneID="bVZ-aQ-SjA">

@@ -12,7 +12,8 @@ class TableViewController_Festival_Detail: UITableViewController, XMLParserDeleg
     var detail_parser = XMLParser()
     var detail_posts = NSMutableArray()
     
-    let postname : [String] = ["행사이름", "주소", "전화번호", "행사 포스터", "지도 보기"]
+    
+    let postname : [String] = ["행사이름", "주소", "전화번호", "행사 포스터", "지도 보기", "시작일", "종료일"]
     
     var detail_elements = NSMutableDictionary()
     var detail_element = NSString()
@@ -25,13 +26,13 @@ class TableViewController_Festival_Detail: UITableViewController, XMLParserDeleg
     var detail_x_pos = NSMutableString()
     var detail_y_pos = NSMutableString()
     
-    var detail_start_date = NSMutableString()
-    var detail_end_date = NSMutableString()
+    var detail_start_date = String()
+    var detail_end_date = String()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(detail_title)젭라")
+        //print("\(detail_start_date)")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
