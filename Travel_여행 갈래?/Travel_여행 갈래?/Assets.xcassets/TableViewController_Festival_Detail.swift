@@ -30,14 +30,58 @@ class TableViewController_Festival_Detail: UITableViewController, XMLParserDeleg
     var detail_end_date = String()
     
     
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FestivalMapViewSegue"{
+            
+            if let viewcon_map = segue.destination as? ViewController_Festival_Map{
+                viewcon_map.x_pos = detail_x_pos as String
+                viewcon_map.y_pos = detail_y_pos as String
+                print("맵뷰로 넘겨버리기")
+            }
+        }
+        
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return detail_posts.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FestivalDetailCell", for: indexPath)
+        cell.textLabel?.text = postname[indexPath.row]
+        cell.detailTextLabel?.text = detail_posts[indexPath.row] as? String
+        let string_buf : NSURL = NSURL(string: detail_posts[3] as! String)!
+        if let data = try? Data(contentsOf: string_buf as URL){
+            if(indexPath.row == 3){
+                cell.imageView?.image = UIImage(data: data)
+            }
+        }
+        /*
+         // Configure the cell...
+         if let url = URL(string: (detail_posts.object(at: indexPath.row) as AnyObject).value(forKey: "url") as! NSString as String){
+         if let data = try? Data(contentsOf: url){
+         cell.imageView?.image = UIImage(data: data)
+         }
+         }
+         */
+        return cell
+    }
+    
+    func SetPosts(){
+        detail_posts[0] = self.detail_title
+        detail_posts[1] = self.detail_addr
+        detail_posts[2] = self.detail_tel
+        detail_posts[3] = self.detail_url
+        detail_posts[4] = self.postname[4]
+        detail_posts[5] = self.detail_start_date
+        detail_posts[6] = self.detail_end_date
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("\(detail_start_date)")
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        SetPosts()
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,14 +93,9 @@ class TableViewController_Festival_Detail: UITableViewController, XMLParserDeleg
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

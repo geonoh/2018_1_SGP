@@ -174,7 +174,7 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
                                 
                 let buf_start = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "eventstartdate") as! NSString as String
                 let buf_end = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "eventenddate") as! NSString as String
-                print("\(buf_start)출력해보자")
+                
                 
                 
                 if let festival_detail = segue.destination as? TableViewController_Festival_Detail{

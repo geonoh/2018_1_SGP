@@ -12,6 +12,7 @@
 		0958D41E20C94AAD000EA0C2 /* ViewController_FindHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958D41D20C94AAD000EA0C2 /* ViewController_FindHome.swift */; };
 		095DFEF320CAC4A40072B9ED /* keyword_background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 095DFEF220CAC4A40072B9ED /* keyword_background.jpeg */; };
 		095DFEF520CAD9D40072B9ED /* festival_background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 095DFEF420CAD9D40072B9ED /* festival_background.jpeg */; };
+		0990492220CE1778000F7C11 /* ViewController_Festival_Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990492120CE1778000F7C11 /* ViewController_Festival_Map.swift */; };
 		09A0D1D320B3F42D00F384F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A0D1D220B3F42D00F384F3 /* AppDelegate.swift */; };
 		09A0D1D820B3F42D00F384F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A0D1D620B3F42D00F384F3 /* Main.storyboard */; };
 		09A0D1DA20B3F42E00F384F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09A0D1D920B3F42E00F384F3 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		0958D41D20C94AAD000EA0C2 /* ViewController_FindHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_FindHome.swift; sourceTree = "<group>"; };
 		095DFEF220CAC4A40072B9ED /* keyword_background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = keyword_background.jpeg; sourceTree = "<group>"; };
 		095DFEF420CAD9D40072B9ED /* festival_background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = festival_background.jpeg; sourceTree = "<group>"; };
+		0990492120CE1778000F7C11 /* ViewController_Festival_Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Festival_Map.swift; sourceTree = "<group>"; };
 		09A0D1CF20B3F42D00F384F3 /* Travel_여행 갈래?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel_여행 갈래?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A0D1D220B3F42D00F384F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09A0D1D720B3F42D00F384F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				09B04FAD20BC5E5300773E87 /* ViewController_MapView.swift */,
 				09FC554D20BAB886009EA357 /* ViewController_Festival.swift */,
 				09524A4420CCDE300079FB3B /* TableViewController_Festival_Detail.swift */,
+				0990492120CE1778000F7C11 /* ViewController_Festival_Map.swift */,
 				0958D41D20C94AAD000EA0C2 /* ViewController_FindHome.swift */,
 			);
 			path = "Travel_여행 갈래?";
@@ -173,6 +176,7 @@
 				0901864320BC13A8005DC1A2 /* ViewController_Keyword_Detail.swift in Sources */,
 				09524A4520CCDE300079FB3B /* TableViewController_Festival_Detail.swift in Sources */,
 				09FC554E20BAB886009EA357 /* ViewController_Festival.swift in Sources */,
+				0990492220CE1778000F7C11 /* ViewController_Festival_Map.swift in Sources */,
 				0958D41E20C94AAD000EA0C2 /* ViewController_FindHome.swift in Sources */,
 				09F92D3720BA8F7A00639AD6 /* ViewController.swift in Sources */,
 				09A0D1D320B3F42D00F384F3 /* AppDelegate.swift in Sources */,
