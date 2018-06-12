@@ -214,11 +214,55 @@ class ViewController_Festival: UIViewController, UIPickerViewDelegate, UIPickerV
     private var speechRecognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     
-    
+    var button_selector : Bool  = false
     @IBAction func start_transcirbe(_ sender: Any) {
-        transcribe_button.isEnabled = false
-        stop_button.isEnabled = true
-        try! startSession()
+        if(button_selector == false){
+            //transcribe_button.isEnabled = false
+            stop_button.isEnabled = true
+            try! startSession()
+            button_selector = true
+        }
+        else{
+            if audioEngine.isRunning {
+                audioEngine.stop()
+                speechRecognitionRequest?.endAudio()
+                //transcribe_button.isEnabled = true
+                stop_button.isEnabled = false
+            }
+            //print("눌렷냐")
+            let fularray = self.myTextView.text.components(separatedBy: " ")
+            
+            var year_buf = fularray[0].split(separator: "년")
+            var month_buf = fularray[1].split(separator: "월")
+            var day_buf = fularray[2].split(separator: "일")
+            
+            start_date = ""
+            start_date.append(String(year_buf[0]))
+            
+            // month_buff_under ten
+            var month_buf_ut = NSMutableString()
+            if(Int(month_buf[0])! < 10){
+                month_buf_ut = "0"
+                month_buf_ut.append(String(month_buf[0]))
+                start_date.append(String(month_buf_ut))
+            }else{
+                start_date.append(String(month_buf[0]))
+            }
+            
+            // day_buff_under_ten
+            var day_buf_ut = NSMutableString()
+            if(Int(month_buf[0])! < 10){
+                day_buf_ut = "0"
+                day_buf_ut.append(String(day_buf[0]))
+                start_date.append(String(day_buf_ut))
+            }else{
+                start_date.append(String(day_buf[0]))
+            }
+            
+            button_selector = false
+        }
+        
+        
     }
     @IBAction func stop_transcribe(_ sender: Any) {
         if audioEngine.isRunning {

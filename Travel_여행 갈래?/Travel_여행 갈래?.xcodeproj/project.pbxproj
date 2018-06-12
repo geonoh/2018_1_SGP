@@ -25,6 +25,10 @@
 		09C8E30D20CEDF6E002A359A /* ViewController_Location_Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C8E30C20CEDF6E002A359A /* ViewController_Location_Map.swift */; };
 		09C8E30F20CEE590002A359A /* homestay_background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 09C8E30E20CEE590002A359A /* homestay_background.jpeg */; };
 		09C8E31120CEE96A002A359A /* location_background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 09C8E31020CEE96A002A359A /* location_background.jpeg */; };
+		09CEB54120CF637D004C0365 /* prev_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CEB53F20CF637D004C0365 /* prev_icon.png */; };
+		09CEB54220CF637D004C0365 /* next_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CEB54020CF637D004C0365 /* next_icon.png */; };
+		09CEB54420CF6763004C0365 /* search_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CEB54320CF6762004C0365 /* search_icon.png */; };
+		09CEB54620CF693D004C0365 /* rec_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CEB54520CF693C004C0365 /* rec_icon.png */; };
 		09F92D3720BA8F7A00639AD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F92D3620BA8F7A00639AD6 /* ViewController.swift */; };
 		09F92D3B20BA901100639AD6 /* ViewController_Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F92D3A20BA901100639AD6 /* ViewController_Keyword.swift */; };
 		09FC554E20BAB886009EA357 /* ViewController_Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC554D20BAB886009EA357 /* ViewController_Festival.swift */; };
@@ -51,6 +55,10 @@
 		09C8E30C20CEDF6E002A359A /* ViewController_Location_Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Location_Map.swift; sourceTree = "<group>"; };
 		09C8E30E20CEE590002A359A /* homestay_background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = homestay_background.jpeg; sourceTree = "<group>"; };
 		09C8E31020CEE96A002A359A /* location_background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = location_background.jpeg; sourceTree = "<group>"; };
+		09CEB53F20CF637D004C0365 /* prev_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev_icon.png; sourceTree = "<group>"; };
+		09CEB54020CF637D004C0365 /* next_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_icon.png; sourceTree = "<group>"; };
+		09CEB54320CF6762004C0365 /* search_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_icon.png; sourceTree = "<group>"; };
+		09CEB54520CF693C004C0365 /* rec_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rec_icon.png; sourceTree = "<group>"; };
 		09F92D3620BA8F7A00639AD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		09F92D3A20BA901100639AD6 /* ViewController_Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Keyword.swift; sourceTree = "<group>"; };
 		09FC554D20BAB886009EA357 /* ViewController_Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Festival.swift; sourceTree = "<group>"; };
@@ -74,6 +82,10 @@
 				095DFEF220CAC4A40072B9ED /* keyword_background.jpeg */,
 				09C8E30E20CEE590002A359A /* homestay_background.jpeg */,
 				09C8E31020CEE96A002A359A /* location_background.jpeg */,
+				09CEB53F20CF637D004C0365 /* prev_icon.png */,
+				09CEB54020CF637D004C0365 /* next_icon.png */,
+				09CEB54320CF6762004C0365 /* search_icon.png */,
+				09CEB54520CF693C004C0365 /* rec_icon.png */,
 			);
 			path = ResourceImage;
 			sourceTree = "<group>";
@@ -183,7 +195,11 @@
 				09C8E31120CEE96A002A359A /* location_background.jpeg in Resources */,
 				095DFEF320CAC4A40072B9ED /* keyword_background.jpeg in Resources */,
 				09A0D1DA20B3F42E00F384F3 /* Assets.xcassets in Resources */,
+				09CEB54620CF693D004C0365 /* rec_icon.png in Resources */,
+				09CEB54420CF6763004C0365 /* search_icon.png in Resources */,
 				09C8E30F20CEE590002A359A /* homestay_background.jpeg in Resources */,
+				09CEB54220CF637D004C0365 /* next_icon.png in Resources */,
+				09CEB54120CF637D004C0365 /* prev_icon.png in Resources */,
 				09A0D1D820B3F42D00F384F3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

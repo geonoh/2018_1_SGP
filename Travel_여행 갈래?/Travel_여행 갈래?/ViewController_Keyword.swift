@@ -11,7 +11,9 @@ import UIKit
 
 class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDataSource, UITableViewDelegate ,UITextFieldDelegate {
     
+    @IBOutlet weak var prev_button: UIButton!
     
+    @IBOutlet weak var next_button: UIButton!
     var parser = XMLParser()
     var posts = NSMutableArray()
     
@@ -183,6 +185,10 @@ class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDa
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "keyword_background.jpeg")!)
+        
+        //prev_button.setImage(UIImage(named: "prev_icon.png"), for: .normal)
+        //next_button.setImage(UIImage(named: "next_icon.png"), for: .normal)
+        
         self.search_box.delegate = self
         // Do any additional setup after loading the view.
     }
