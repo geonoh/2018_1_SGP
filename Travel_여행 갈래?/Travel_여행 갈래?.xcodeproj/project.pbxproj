@@ -14,6 +14,8 @@
 		095DFEF320CAC4A40072B9ED /* keyword_background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 095DFEF220CAC4A40072B9ED /* keyword_background.jpeg */; };
 		095DFEF520CAD9D40072B9ED /* festival_background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 095DFEF420CAD9D40072B9ED /* festival_background.jpeg */; };
 		0990492220CE1778000F7C11 /* ViewController_Festival_Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990492120CE1778000F7C11 /* ViewController_Festival_Map.swift */; };
+		0993A68320CF8926005AA52D /* ExplodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0993A68220CF8926005AA52D /* ExplodeView.swift */; };
+		0993A68520CF8AAC005AA52D /* particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0993A68420CF8AAB005AA52D /* particle.png */; };
 		09A0D1D320B3F42D00F384F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A0D1D220B3F42D00F384F3 /* AppDelegate.swift */; };
 		09A0D1D820B3F42D00F384F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A0D1D620B3F42D00F384F3 /* Main.storyboard */; };
 		09A0D1DA20B3F42E00F384F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09A0D1D920B3F42E00F384F3 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		095DFEF220CAC4A40072B9ED /* keyword_background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = keyword_background.jpeg; sourceTree = "<group>"; };
 		095DFEF420CAD9D40072B9ED /* festival_background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = festival_background.jpeg; sourceTree = "<group>"; };
 		0990492120CE1778000F7C11 /* ViewController_Festival_Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Festival_Map.swift; sourceTree = "<group>"; };
+		0993A68220CF8926005AA52D /* ExplodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplodeView.swift; sourceTree = "<group>"; };
+		0993A68420CF8AAB005AA52D /* particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle.png; sourceTree = "<group>"; };
 		09A0D1CF20B3F42D00F384F3 /* Travel_여행 갈래?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel_여행 갈래?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A0D1D220B3F42D00F384F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09A0D1D720B3F42D00F384F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 		0958D42120C953D3000EA0C2 /* ResourceImage */ = {
 			isa = PBXGroup;
 			children = (
+				0993A68420CF8AAB005AA52D /* particle.png */,
 				095DFEF420CAD9D40072B9ED /* festival_background.jpeg */,
 				095DFEF220CAC4A40072B9ED /* keyword_background.jpeg */,
 				09C8E30E20CEE590002A359A /* homestay_background.jpeg */,
@@ -116,6 +121,7 @@
 				09A0D1DB20B3F42E00F384F3 /* LaunchScreen.storyboard */,
 				09A0D1DE20B3F42E00F384F3 /* Info.plist */,
 				09F92D3620BA8F7A00639AD6 /* ViewController.swift */,
+				0993A68220CF8926005AA52D /* ExplodeView.swift */,
 				09F92D3A20BA901100639AD6 /* ViewController_Keyword.swift */,
 				0901864220BC13A8005DC1A2 /* ViewController_Keyword_Detail.swift */,
 				09B04FAD20BC5E5300773E87 /* ViewController_MapView.swift */,
@@ -201,6 +207,7 @@
 				09CEB54220CF637D004C0365 /* next_icon.png in Resources */,
 				09CEB54120CF637D004C0365 /* prev_icon.png in Resources */,
 				09A0D1D820B3F42D00F384F3 /* Main.storyboard in Resources */,
+				0993A68520CF8AAC005AA52D /* particle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +224,7 @@
 				09524A4520CCDE300079FB3B /* TableViewController_Festival_Detail.swift in Sources */,
 				09FC554E20BAB886009EA357 /* ViewController_Festival.swift in Sources */,
 				0990492220CE1778000F7C11 /* ViewController_Festival_Map.swift in Sources */,
+				0993A68320CF8926005AA52D /* ExplodeView.swift in Sources */,
 				09C8E30D20CEDF6E002A359A /* ViewController_Location_Map.swift in Sources */,
 				09C8E30720CEB992002A359A /* ViewController_FindHome_Map.swift in Sources */,
 				0958D41E20C94AAD000EA0C2 /* ViewController_FindHome.swift in Sources */,

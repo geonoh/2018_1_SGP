@@ -164,6 +164,7 @@
                         <outlet property="Festival_data" destination="TaE-Fd-DTZ" id="MF8-V4-pAk"/>
                         <outlet property="city_picker" destination="6CM-U8-EIO" id="jqq-KC-4Zv"/>
                         <outlet property="myTextView" destination="wKc-9b-Znf" id="RfA-S0-Ld7"/>
+                        <outlet property="search_button_inter" destination="bfs-Fv-kUq" id="Ks5-xg-sHn"/>
                         <outlet property="stop_button" destination="JYz-sz-S43" id="94P-8S-ES3"/>
                         <outlet property="transcribe_button" destination="oly-bQ-Ab3" id="45i-4c-qxW"/>
                     </connections>
@@ -415,6 +416,7 @@
                     <connections>
                         <outlet property="home_picker" destination="4NZ-u3-DH4" id="XWe-QD-XRX"/>
                         <outlet property="home_tableview" destination="PeG-6L-xjh" id="OXn-ec-Vuk"/>
+                        <outlet property="search_button" destination="zod-Sd-kMy" id="Mzo-XV-Jae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="crE-a2-92j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -802,6 +804,7 @@
                         <outlet property="next_button" destination="tht-uK-rOh" id="hdi-CO-JMe"/>
                         <outlet property="prev_button" destination="9Kq-nR-tZS" id="gBe-ps-dw7"/>
                         <outlet property="search_box" destination="taV-1l-Ts4" id="hcD-E7-c9f"/>
+                        <outlet property="search_button" destination="yPO-ZQ-dA5" id="q5D-5V-xkx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MZz-pJ-zLy" userLabel="First Responder" sceneMemberID="firstResponder"/>

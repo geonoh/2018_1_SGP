@@ -13,6 +13,7 @@ class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDa
     
     @IBOutlet weak var prev_button: UIButton!
     
+    @IBOutlet weak var search_button: UIButton!
     @IBOutlet weak var next_button: UIButton!
     var parser = XMLParser()
     var posts = NSMutableArray()
@@ -50,7 +51,9 @@ class ViewController_Keyword: UIViewController, XMLParserDelegate, UITableViewDa
     @IBAction func TestButton(_ sender: Any) {
         print("눌러쪄요2")
         beginParsing()
-        
+        let explore = ExplodeView(frame: CGRect(x: (search_button.imageView?.center.x)!, y:(search_button.imageView?.center.y)!,width: 10, height: 10))
+        search_button.imageView?.superview?.addSubview(explore)
+        search_button.imageView?.superview?.sendSubview(toBack: explore)
     }
     
     @IBOutlet weak var keyword_data: UITableView!
